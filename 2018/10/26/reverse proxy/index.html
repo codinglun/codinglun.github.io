@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="工作后经常接触到nginx服务器，同时也经常听到反向代理这个词，每次不明所以，今天看到这个理解，很快就明白了其概念(希望是正确的)。 这也启发我在工作学习当中，面对陌生的概念不要一上来就有抵触和恐惧情绪，也许很多听着唬人的名词都只是纸老虎而已。名字抽象可能由于寻找一个概括性词语来定义一个新事物本就困难，还有存在英语翻译过来的词意偏差。就像下文中也提到最好看英文原版资料，因此学习英语相当重要。 如何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经常提到的反向代理是为何意？">
+<meta property="og:url" content="http://yoursite.com/2018/10/26/reverse proxy/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="工作后经常接触到nginx服务器，同时也经常听到反向代理这个词，每次不明所以，今天看到这个理解，很快就明白了其概念(希望是正确的)。 这也启发我在工作学习当中，面对陌生的概念不要一上来就有抵触和恐惧情绪，也许很多听着唬人的名词都只是纸老虎而已。名字抽象可能由于寻找一个概括性词语来定义一个新事物本就困难，还有存在英语翻译过来的词意偏差。就像下文中也提到最好看英文原版资料，因此学习英语相当重要。 如何">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-26T12:00:53.668Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="经常提到的反向代理是为何意？">
+<meta name="twitter:description" content="工作后经常接触到nginx服务器，同时也经常听到反向代理这个词，每次不明所以，今天看到这个理解，很快就明白了其概念(希望是正确的)。 这也启发我在工作学习当中，面对陌生的概念不要一上来就有抵触和恐惧情绪，也许很多听着唬人的名词都只是纸老虎而已。名字抽象可能由于寻找一个概括性词语来定义一个新事物本就困难，还有存在英语翻译过来的词意偏差。就像下文中也提到最好看英文原版资料，因此学习英语相当重要。 如何">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/">
+  <link rel="canonical" href="http://yoursite.com/2018/10/26/reverse proxy/">
 
 
 
 
 
-  <title>Archive | Hexo</title>
+  <title>经常提到的反向代理是为何意？ | Hexo</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <!-- <div class="headband"></div> -->
     <a href="https://github.com/codinglun" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -219,142 +223,143 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/26/reverse proxy/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">经常提到的反向代理是为何意？</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-26T19:50:50+08:00">
+                2018-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 3 posts in total. Keep on posting.
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/26/reverse proxy/" itemprop="url">
-              
-                <span itemprop="name">经常提到的反向代理是为何意？</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-26T19:50:50+08:00" content="2018-10-26">
-          10-26
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/25/My first blog/" itemprop="url">
-              
-                <span itemprop="name">My First Blog</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-25T18:10:34+08:00" content="2018-10-25">
-          10-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/25/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-25T16:59:07+08:00" content="2018-10-25">
-          10-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>工作后经常接触到nginx服务器，同时也经常听到反向代理这个词，每次不明所以，今天看到这个理解，很快就明白了其概念(希望是正确的)。</p>
+<p>这也启发我在工作学习当中，面对陌生的概念不要一上来就有抵触和恐惧情绪，也许很多听着唬人的名词都只是纸老虎而已。名字抽象可能由于寻找一个概括性词语来定义一个新事物本就困难，还有存在英语翻译过来的词意偏差。就像下文中也提到最好看英文原版资料，因此学习英语相当重要。</p>
+<p><a href="https://segmentfault.com/q/1010000003491873" target="_blank" rel="noopener">如何准确快速理解【反向代理(reverse proxy)】</a></p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/25/My first blog/" rel="next" title="My First Blog">
+                <i class="fa fa-chevron-left"></i> My First Blog
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +367,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -558,6 +567,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
